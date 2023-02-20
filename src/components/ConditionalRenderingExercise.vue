@@ -38,7 +38,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showerPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if= "state.player.number === 1">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div  v-if= "state.player.number === 2">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <div v-if= "state.player.number === 3">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <div v-if= "state.player.number === 4">
             <p>The grade is 'D'.</p>
           </div>
           <!-- v-else to display if all the others fail -->
-          <div>
+          <div v-if= "state.player.number === 5">
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -130,6 +130,7 @@ export default {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
       //add a property to toggle the player-card here.
+      showerPlayer: true,
       //add a property to set the number value here.
       player: {
         photo: "https://robohash.org/Mick",
